@@ -30,7 +30,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const childNodes = fixture.debugElement.childNodes;
 
-    let productPageFound = 0, routerOutletFound = 0, productListFound = 0;
+    let productPageFound = 0,  routerOutletFound = 0, productListFound = 0;
     childNodes.forEach(element => {
       if (element.nativeNode.nodeType == 1) {
         if (element.nativeNode.localName == 'router-outlet') {
@@ -39,14 +39,15 @@ describe('AppComponent', () => {
         if (element.nativeNode.localName == 'app-product-list') {
           productListFound = productListFound + 1;
         }
-        if (element.nativeNode.localName === 'app-product-page') {
+        if (element.nativeNode.localName == 'app-product-page') {
           productPageFound = productPageFound + 1;
         }
       }
     });
 
     if (!routerOutletFound && !productListFound) {
-      since('We couldn\'t find the ProductPageComponent - are you sure you added the right selector to the AppComponent?').expect(productPageFound).toBe(1);
+      since('We couldn\'t find the ProductPageComponent - are you sure you added the right selector to the AppComponent?')
+      .expect(productPageFound).toBe(0);
     }
   }));
 
