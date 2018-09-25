@@ -39,7 +39,7 @@ describe('AppComponent', () => {
         if (element.nativeNode.localName == 'app-product-list') {
           productListFound = productListFound + 1;
         }
-        if (element.nativeNode.localName == 'app-product-page') {
+        if (element.nativeNode.localName === 'app-product-page') {
           productPageFound = productPageFound + 1;
         }
       }
